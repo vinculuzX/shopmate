@@ -13,7 +13,7 @@ class MainPage extends Component{
       </header>
       <nav>
         <div className="nav">
-          <div classNameName="nav__navigationShop"></div>
+          <div className="nav__navigationShop"></div>
         </div>
       </nav>
       <main>
