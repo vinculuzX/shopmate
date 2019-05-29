@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import  ProductDetails  from '../components';
 
 class ProductPage extends Component{
   constructor(){
@@ -8,10 +9,7 @@ class ProductPage extends Component{
   render(){
     return(){
       <div className="product">
-        <div className="product__info">
-          <div className="product__image"></div>
-          <div className="product__detail"></div>
-        </div>
+        <ProductDetails/>
         <div className="product__reviews"></div>
       </div>
     }

@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-
+import HeaderComponent , NavigationComponent , FooterComponent from '../components'
 class MainPage extends Component{
   constructor(){
 
@@ -7,14 +7,10 @@ class MainPage extends Component{
   render(){
     return(
       <header>
-        <div className="header">
-          <div className="header__actionStore"><div>
-        </div>
+        <HeaderComponent/>
       </header>
       <nav>
-        <div className="nav">
-          <div className="nav__navigationShop"></div>
-        </div>
+        <NavigationComponent/>
       </nav>
       <main>
         <div className="content">
@@ -25,11 +21,7 @@ class MainPage extends Component{
         </div>
       </main>
       <footer>
-        <div className="footer">
-          <div className="footer__navigationShop"></div>
-          <div className="footer__socialMedia"></div>
-          <div className="footer__infoShop"></div>
-        </div>
+        <FooterComponent/>
       <footer>
     )
   }

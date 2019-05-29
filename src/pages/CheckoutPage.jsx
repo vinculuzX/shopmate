@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-
+import ProductsCheckoutComponent from './components'
 class CheckoutPage extends Component{
   constructor(){
 
@@ -7,9 +7,7 @@ class CheckoutPage extends Component{
   render(){
     return(){
       <div className="checkout">
-        <div class="checkout__actionShop"></div>
-        <div class="checkout__listProducts"></div>
-        <div class="checkout__actionBuy"></div>
+        <ProductsCheckoutComponent/>
       </div>
     }
   }
