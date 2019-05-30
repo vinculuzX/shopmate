@@ -1,10 +1,6 @@
-import React , {Component} from 'react'
+import React from 'react'
 
-class ProductDetailsComponent extends Component{
-  constructor(){
-
-  }
-
+class ProductDetailsComponent extends React.Component{
   render(){
     return(
       <div className="productDetails">

@@ -1,6 +1,6 @@
-import React , {Component} from 'react'
+import React  from 'react'
 
-class ShallowModal extends Component {
+class ShallowModal extends React.Component {
   constructor(){
 
   }

@@ -1,9 +1,6 @@
-import React , {Component} from 'react'`;
+import React  from 'react';
 
-class ProductsCheckoutComponent extends Component{
-  constructor(){
-
-  }
+class ProductsCheckoutComponent extends React.Component{
   render(){
     return(
       <div className="productsCheckout">
@@ -13,7 +10,7 @@ class ProductsCheckoutComponent extends Component{
             <button type="button"> Place Order></button>
           </div>
           <div className="productsCheckout__list">
-            // create table component
+
           </div>
           <div className="productsCheckout__actionFinish">
             <button type="submit">Finish Order</button>

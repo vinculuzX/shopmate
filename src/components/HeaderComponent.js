@@ -1,8 +1,11 @@
-import React , {Component} from 'react';
+import React from 'react';
 
-class HeaderComponent extends Component {
-  constructor(){
-
+class HeaderComponent extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      amount:0
+    }
   }
   render(){
     return(
@@ -16,15 +19,15 @@ class HeaderComponent extends Component {
           </div>
           <div className="header__actionShop--center">
             <div className="actionInformation">
-              <span>Daily Deal</span>
-              <span>Sell</span>
-              <span>Help & Contact</span>
+              <span><a>Daily Deal</a></span>
+              <span><a>Sell</a></span>
+              <span><a>Help & Contact</a></span>
             </div>
           </div>
           <div className="header__actionShop--end">
             <div className="actionBuy">
               <span>Currency</span>
-              <span>Amount:R$16000</span>
+              <span>{this.props.render(this.state.amount)}</span>
             </div>
           </div>
         </div>
@@ -32,5 +35,6 @@ class HeaderComponent extends Component {
     )
   }
 }
+
 
 export default HeaderComponent
