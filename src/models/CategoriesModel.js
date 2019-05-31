@@ -1,5 +1,5 @@
 //categories
-export default const Categories = {
+export const Categories = 
   [
     {
       category_id:1,
@@ -22,4 +22,3 @@ export default const Categories = {
       description:"The French have always had an eye for beauty. One look at the T-shirts below and you'll see that same appreciation has been applied abundantly to their postage stamps. Below are some of our most beautiful and colorful T-shirts, so browse away! And don't forget to go all the way to the bottom - you don't want to miss any of them!"
     }
   ]
-}

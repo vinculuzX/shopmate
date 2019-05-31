@@ -1,4 +1,4 @@
-export default const productDetails = {
+export const ProductDetails = 
   [
     {
       product_id: 2,
@@ -10,4 +10,3 @@ export default const productDetails = {
       image2: "chartres-cathedral2.gif"
     }
   ]
-}

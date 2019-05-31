@@ -1,4 +1,4 @@
-export default checkout  = {
+export const ProductsCheckout  =
   [
     {
       item_id: 2,
@@ -11,4 +11,3 @@ export default checkout  = {
       subtotal: "14.99"
     }
   ]
-}

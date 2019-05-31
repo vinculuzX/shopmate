@@ -1,21 +1,27 @@
-import React from 'react'
+import React from 'react';
+import {Categories} from '../models/CategoriesModel';
 
 class NavigationComponent extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      quantityItems:0
+      quantityItems:0,
+      categories:Categories
     }
   }
   render(){
+    const categoriesList = this.state.categories
+    .map((cat) => {
+      return(
+        <li key={cat.category_id}><a href={cat.name}>{cat.name}</a></li>
+      )
+    })
     return(
       <div className="navigation">
         <div className="navigation__list">
             <h3>Title</h3>
             <ul>
-              <li><a href="1">Women</a></li>
-              <li><a href="2">Men</a></li>
-              <li><a href="3">Kid</a></li>
+              {categoriesList}
             </ul>
         </div>
         <div className="navigation__actionBuy">

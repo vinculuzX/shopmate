@@ -1,5 +1,5 @@
 ///products
-export default productsList = {
+export const ProductsList =
   [
     {
       product_id:1,
@@ -32,6 +32,5 @@ export default productsList = {
       price:"16.95",
       discounted_price:"15.95",
       thumbnail:"Chartres-cathedral-thumbnail.gif"
-    },
+    }
   ]
-}

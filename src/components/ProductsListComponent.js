@@ -1,36 +1,50 @@
 import React  from 'react';
+import {ProductsList} from '../models/ProductsListModel'
 
 class ProductsListComponent extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      product:{
+      product:[{
         name:"",
         description:"",
         price:0,
         discounted_price:0
-      }
+      }]
     }
   }
+  componentDidMount(){
+    this.setState({
+      product:ProductsList
+    })
+  }
+
   handleAddtoCart = () => {
 
   }
   render(){
+    const productsList  = this.state.product
+    .map((product) => {
+      return(
+        <div key={product.product_id} className="productsList">
+            <div class="productsList__data">
+              <h4>{product.name}</h4>
+              <img src={product.thumbnail} alt="image"/>
+            </div>
+            <div class="productsList__price">
+              <span>{product.price}</span>
+              <button onClick={(product) => this.handleAddToCart(product)} type="button">Add Cart</button>
+            </div>
+            <div class="productsList__description">
+              {product.description}
+            </div>
+        </div>
+      )
+    });
     return(
-      <div className="productsList">
-          <div class="productsList__data">
-            <h4>{this.state.product.name}</h4>
-            <img src="" alt="image"/>
-          </div>
-          <div class="productsList__price">
-            <span>{this.state.product.price}</span>
-            <button onClick={(e) => this.handleAddToCart(e)} type="button">Add Cart</button>
-          </div>
-          <div class="productsList__description">
-            {this.state.product.description}
-          </div>
-      </div>
+      <div>{productsList}</div>
     )
+
   }
 }
 
