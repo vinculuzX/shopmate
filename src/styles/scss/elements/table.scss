@@ -1,0 +1,20 @@
+table{
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  thead{
+    background-color: $lighWhite;
+    >th{
+      color:$ink;
+    }
+  }
+  tbody{
+    background-color: $white;
+    td{
+      text-align: center;
+      color:$ink;
+    }
+  }
+  td , th{
+    padding:8px;
+  }
+}

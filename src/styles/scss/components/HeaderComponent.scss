@@ -1,0 +1,52 @@
+@import '../variable.scss';
+.header{
+  max-width: 100%;
+  height:20px;
+  background-color: $white;
+  padding:15px 5px;
+  color:$ink;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  &__actionShop{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5rem;
+    &--start{
+      align-content: start;
+      .actionUser{
+        margin:0px 5px;
+        &>span{
+          color:$pink;
+          margin:0px 5px;
+          &>b{
+            color:$ink;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &--center{
+      align-content: center;
+      .actionInformation{
+        font-weight: bold;
+        >span{
+          margin:0px 5px;
+          cursor: pointer;
+        }
+      }
+
+    }
+    &--end{
+      align-content: end;
+      .actionBuy{
+        >span{
+           margin:0px 24px;
+           img{
+             height: 1.2em;
+           }
+        }
+      }
+    }
+  }
+}

@@ -11,8 +11,7 @@ class ShallowModal extends React.Component {
               <button>X</button
           </div>
           <div class="modal__content">
-            {props.children}
-            // content modal here
+            {this.props.children}
           </div>
       </div>
     )

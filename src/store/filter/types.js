@@ -1,0 +1,2 @@
+export const SEARCH_FILTER = 'SEARCH_FILTER';
+export const SELECT_NAV_FILTER = 'SELECT_NAV_FILTER';

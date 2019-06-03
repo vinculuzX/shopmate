@@ -24,28 +24,30 @@ function subscription(){
 class MainPage extends React.Component{
   render(){
       return(
-          <div>
-            <header>
-              <HeaderComponent/>
-            </header>
-            <nav>
-              <NavigationComponent/>
-            </nav>
-            <main>
-              <div className="content">
-                <Router>
-                  <Switch>
-                      <Route exact path="/" component={ProductsListPage}/>
-                      <Route path="/product/:productId" component={ProductPage}/>
-                      <Route path="/checkout" component={CheckoutPage}/>
-                  </Switch>
-                </Router>
-              </div>
-            </main>
-            <footer>
-              <FooterComponent/>
-            </footer>
-          </div>
+          <Router>
+            <div>
+              <header>
+                <HeaderComponent/>
+              </header>
+              <nav>
+                <NavigationComponent/>
+              </nav>
+              <main>
+                <div className="content">
+
+                    <Switch>
+                        <Route exact path="/" component={ProductsListPage}/>
+                        <Route path="/product/:productId" component={ProductPage}/>
+                        <Route path="/checkout" component={CheckoutPage}/>
+                    </Switch>
+
+                </div>
+              </main>
+              <footer>
+                <FooterComponent/>
+              </footer>
+            </div>
+          </Router>
         )
      }
   }

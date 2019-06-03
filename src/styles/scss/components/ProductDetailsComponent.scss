@@ -1,0 +1,40 @@
+@import '../variable.scss';
+.productDetails{
+  max-width: 60%;
+  margin:0 auto;
+  display: flex;
+  padding:4.25em 0px;
+  font-family: 'Montserrat', sans-serif;
+  >div{
+      width: 25em;
+      height: 450px;
+  }
+  &__images{
+    background-color: $white;
+  }
+  &__info{
+    text-align: center;
+    background-color: $lighWhite;
+    h4{
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    span{
+      text-align: left;
+    }
+    button{
+      margin-top: 18vh;
+    }
+  }
+  &__price{
+      display: flex;
+      >span{
+        color:$ink;
+        .discount{
+          color:$pink;
+        }
+      }
+
+  }
+}

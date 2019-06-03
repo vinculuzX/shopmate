@@ -1,4 +1,8 @@
 import React from 'react';
+import { ProductsTotal} from '../models/ProductsCheckoutModel'
+import '../styles/scss/components/HeaderComponent.scss';
+import gbr from '../assets/images/Icon/gbr.png';
+import iconBag from '../assets/images/Icon/icons-bag.png';
 class HeaderComponent extends React.Component{
   constructor(props){
     super(props);
@@ -6,6 +10,11 @@ class HeaderComponent extends React.Component{
       amount:0,
       isModal:false
     }
+  }
+  componentDidMount(){
+    this.setState({
+      amount:ProductsTotal
+    })
   }
   openModalSignin = () => {
     return this.setState({isModal:true})
@@ -19,8 +28,8 @@ class HeaderComponent extends React.Component{
         <div className="header__actionShop">
           <div className="header__actionShop--start">
               <div className="actionUser">
-                <span onClick={this.openModalSignin}><b>Hi!</b>Sign in</span>
-                <span onClick={this.openModalRegister}><b>or</b>Register</span>
+                <span onClick={this.openModalSignin}><b>Hi!</b> Sign in</span>
+                <span onClick={this.openModalRegister}><b>or</b> Register</span>
               </div>
           </div>
           <div className="header__actionShop--center">
@@ -32,8 +41,8 @@ class HeaderComponent extends React.Component{
           </div>
           <div className="header__actionShop--end">
             <div className="actionBuy">
-              <span>Currency</span>
-              <span>{this.state.amount}</span>
+              <span><img src={gbr} alt="currency"/></span>
+              <span><img src={iconBag} alt="bag"/> Your Bag <strong> &#163; </strong> {this.state.amount}</span>
             </div>
           </div>
         </div>

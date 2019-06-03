@@ -1,51 +1,63 @@
 import React  from 'react';
-import {ProductsList} from '../models/ProductsListModel'
-
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import {ProductsList} from '../models/ProductsListModel';
+import '../styles/scss/components/ProductListComponent.scss';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { incrementCart } from '../store/cart/actions';
 class ProductsListComponent extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      product:[{
-        name:"",
-        description:"",
-        price:0,
-        discounted_price:0
-      }]
+      product:ProductsList
     }
   }
   componentDidMount(){
-    this.setState({
-      product:ProductsList
+    axios.get('https://backendapi.turing.com/products').then((res)=>{
+      const allProduct = res.data.rows;
+      this.setState({
+        product:allProduct
+      })
     })
   }
-
-  handleAddtoCart = () => {
-
+  componentWillMoutn(){
+    axios.get('https://backendapi.turing.com/products').then((res)=>{
+      const allProduct = res.data.rows;
+      this.setState({
+        product:allProduct
+      })
+    })
   }
   render(){
+    const { incrementCart } = this.props;
     const productsList  = this.state.product
-    .map((product) => {
+    .map((product,index) => {
+      product.thumbnail = `https://backendapi.turing.com/images/products/${product.thumbnail}`
+      const productLink = `/product/${product.product_id}`;
       return(
-        <div key={product.product_id} className="productsList">
-            <div class="productsList__data">
-              <h4>{product.name}</h4>
-              <img src={product.thumbnail} alt="image"/>
-            </div>
-            <div class="productsList__price">
-              <span>{product.price}</span>
-              <button onClick={(product) => this.handleAddToCart(product)} type="button">Add Cart</button>
-            </div>
-            <div class="productsList__description">
-              {product.description}
-            </div>
-        </div>
+
+          <div key={index} className="card">
+              <div className="card__image">
+                  <img src={product.thumbnail} alt="image"/>
+              </div>
+              <div className="card__content">
+                  <Link to={productLink}><h4 className="title">{product.name}</h4></Link><br/>
+                  <span className="price">{product.price}</span><br/><br/>
+                  <button className="pink" onClick={() => incrementCart(product)}>Add Cart</button>
+              </div>
+          </div>
+
       )
     });
     return(
-      <div>{productsList}</div>
+      <div className="productsList">{productsList}</div>
     )
 
   }
 }
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ incrementCart }, dispatch);
 
-export default ProductsListComponent
+
+export default connect(null,mapDispatchToProps)(ProductsListComponent);

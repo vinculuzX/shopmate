@@ -1,13 +1,6 @@
-export const ProductsCheckout  =
-  [
-    {
-      item_id: 2,
-      name: "Arc d'Triomphe",
-      attributes: "LG, red",
-      product_id: 2,
-      price: "14.99",
-      quantity: 1,
-      image: "arc-d-triomphe.gif",
-      subtotal: "14.99"
-    }
-  ]
+import {loadStorage} from '../service/LocalStorage/localStorageService'
+export const ProductsCheckout  =  loadStorage('cart').cart.newItem;
+export const QuantityItemCart = ProductsCheckout.length
+export const ProductsTotal  = ProductsCheckout.reduce((prevValue , accValue) => {
+    return Number(prevValue) + Number(accValue.price)
+},0)
