@@ -2,9 +2,6 @@ import React  from 'react';
 import {ProductsCheckout , ProductsTotal} from '../models/ProductsCheckoutModel'
 import '../styles/scss/components/ProductsCheckoutComponent.scss';
 class TableProductsList extends React.Component{
-  constructor(props){
-    super(props)
-  }
   render(){
     const productsListCheckout = this.props.tableProductsList
     .map((productsList,index)=>{

@@ -21,25 +21,52 @@ class ProductsListComponent extends React.Component{
       })
     })
   }
-  componentWillMoutn(){
-    axios.get('https://backendapi.turing.com/products').then((res)=>{
-      const allProduct = res.data.rows;
-      this.setState({
-        product:allProduct
-      })
-    })
+  componentDidUpdate(){
+    const { searchString , department , category }  = this.props
+    if(searchString !== ""){
+      axios.get(`https://backendapi.turing.com/products/search?query_string=${searchString}`).then((res)=>{
+        const allProduct = res.data.rows;
+        if(allProduct.length > 0){
+          this.setState({
+            product:allProduct,
+          })
+        }
+      });
+    }
+    if(department && !category){
+      axios.get(`https://backendapi.turing.com/products/inDepartment/${department}`).then((res)=>{
+        const allProduct = res.data.rows;
+        if(allProduct.length > 0){
+          this.setState({
+            product:allProduct,
+          })
+        }
+      });
+    }
+    if(category){
+      axios.get(`https://backendapi.turing.com/products/inCategory/${category}`).then((res)=>{
+        const allProduct = res.data.rows;
+        if(allProduct.length > 0){
+          this.setState({
+            product:allProduct,
+          })
+        }
+      });
+    }
   }
+
+
   render(){
     const { incrementCart } = this.props;
     const productsList  = this.state.product
     .map((product,index) => {
-      product.thumbnail = `https://backendapi.turing.com/images/products/${product.thumbnail}`
+      console.log(product);
       const productLink = `/product/${product.product_id}`;
       return(
 
           <div key={index} className="card">
               <div className="card__image">
-                  <img src={product.thumbnail} alt="image"/>
+                  <img src={`https://backendapi.turing.com/images/products/${product.thumbnail}`} alt={product.thumbnail}/>
               </div>
               <div className="card__content">
                   <Link to={productLink}><h4 className="title">{product.name}</h4></Link><br/>
@@ -58,6 +85,10 @@ class ProductsListComponent extends React.Component{
 }
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ incrementCart }, dispatch);
+const mapStateToProps = store => ({
+  category:store.selectNavigationFilter.category,
+  department:store.selectNavigationFilter.department
+})
 
 
-export default connect(null,mapDispatchToProps)(ProductsListComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(ProductsListComponent);

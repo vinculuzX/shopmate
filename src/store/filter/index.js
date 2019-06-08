@@ -1,7 +1,6 @@
-import {SEARCH_FILTER,SELECT_NAV_FILTER} from './types'
+import {SEARCH_FILTER, SELECT_NAV_FILTER_BY_DEPARTMENT , SELECT_NAV_FILTER_BY_CATEGORY } from './types'
 
 const initialState = {
-  nav:'',
   input:''
 }
 
@@ -11,6 +10,24 @@ export const searchInputReducer = (state = initialState, action) =>{
     return{
       ...state,
       input:action.input
+    }
+    default:
+      return state
+
+  }
+}
+
+export const selectNavigationFilterReducer = ( state = {} , action) => {
+  switch (action.type) {
+    case SELECT_NAV_FILTER_BY_DEPARTMENT:
+    return{
+      ...state,
+      department:action.department,
+    }
+    case  SELECT_NAV_FILTER_BY_CATEGORY:
+    return{
+      ...state,
+      category:action.category
     }
     default:
       return state

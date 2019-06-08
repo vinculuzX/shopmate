@@ -1,6 +1,4 @@
 ///products
-import {getAllProducts} from '../service/Http/productsServiceAPI';
-
 export const ProductsList = [
   {
     name:"",

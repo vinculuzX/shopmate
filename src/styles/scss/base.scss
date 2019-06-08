@@ -4,7 +4,7 @@ body{
   margin:0 auto;
   overflow-x:hidden ;
 }
-button{
+button,input,a{
   &:focus {
     outline-width: 0;
   }

@@ -1,11 +1,17 @@
-import {SEARCH_FILTER,SELECT_NAV_FILTER} from './types'
+import { SEARCH_FILTER , SELECT_NAV_FILTER_BY_DEPARTMENT,SELECT_NAV_FILTER_BY_CATEGORY} from './types'
 
-export const searchInput  = input => {
+export const searchInput = input => ({
   type:SEARCH_FILTER,
-  input
-}
+  input:input
+})
 
-export const selectNavigationFilter  = nav => {
-  type:SEARCH_FILTER,
-  nav
-}
+export const selectNavigationFilterDepartment = department => ({
+  type:SELECT_NAV_FILTER_BY_DEPARTMENT,
+  department,
+
+})
+
+export const selectNavigationFilterCategory = category => ({
+  type:SELECT_NAV_FILTER_BY_CATEGORY,
+  category
+})

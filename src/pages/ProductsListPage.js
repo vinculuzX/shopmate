@@ -1,15 +1,18 @@
 import React from 'react';
-import ProductsListComponent from '../components/ProductsListComponent'
-
+import ProductsListComponent from '../components/ProductsListComponent';
+import {connect} from 'react-redux';
 class ProductsListPage extends React.Component{
 
   render(){
+    const { input } = this.props
     return(
       <div>
-        <ProductsListComponent/>
+        <ProductsListComponent searchString={input}/>
       </div>
     )
   }
 }
-
-export default ProductsListPage
+const mapStateToProps = store => ({
+    input: store.searchInput.input
+});
+export default connect(mapStateToProps)(ProductsListPage)

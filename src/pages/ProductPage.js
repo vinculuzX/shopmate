@@ -1,10 +1,6 @@
 import React from 'react';
 import ProductDetailsComponent from '../components/ProductDetailsComponent'
 class ProductPage extends React.Component{
-  constructor(props){
-    super(props)
-  }
-
   render(){
     const { productId } = this.props.match.params
     return(

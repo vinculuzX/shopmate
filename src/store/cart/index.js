@@ -1,13 +1,13 @@
 import {ADD_TO_CART,REMOVE_TO_CART} from './types';
 import { retrieveCart , addCartItem } from '../../service/LocalStorage/cartStorage'
 
+
 const cartLocalStorageData = (state) => {
   let retrieveCartData = retrieveCart.getItem('cart');
   if(retrieveCartData === undefined){
-    retrieveCartData = []
-    addCartItem('cart')([])
+    retrieveCartData = [];
   }else{
-    retrieveCartData = JSON.parse(localStorage.getItem('cart')).cart.newItem
+    retrieveCartData = JSON.parse(localStorage.getItem('cart'))
   }
   return retrieveCartData
 }

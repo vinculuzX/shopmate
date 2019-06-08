@@ -28,7 +28,7 @@ class ProductDetailsComponent extends React.Component{
        return(
          <div key={index} className="productDetails">
            <div className="productDetails__images">
-              <img src={product.image} alt="image"/>
+              <img src={product.image} alt={product.image}/>
            </div>
            <div className="productDetails__info">
 
