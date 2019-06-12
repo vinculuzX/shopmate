@@ -4,11 +4,11 @@ class LoginModalComponent extends Component {
 
   render(){
     return(
-      <div class="form">
+      <div className="form">
         <form>
           <h2>Sign in</h2>
-          <input type="text" placheholder="Email*">
-          <input type="password" placheholder="Password*">
+          <input type="text" placheholder="Email*"/>
+          <input type="password" placheholder="Password*"/>
         </form>
       </div>
     )

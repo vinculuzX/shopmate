@@ -11,4 +11,4 @@ const unsubscribe = Store.subscribe(
   },200))
 unsubscribe()
 
-Store.subscribe(()=>{ console.log(Store.getState()) })
+// Store.subscribe(()=>console.log(Store.getState()))

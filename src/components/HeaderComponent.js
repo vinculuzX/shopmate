@@ -1,5 +1,8 @@
 import React from 'react';
-import { ProductsTotal} from '../models/ProductsCheckoutModel'
+import { ProductsTotal} from '../models/ProductsCheckoutModel';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {stateModal,chooseModal} from '../store/modal/actions'
 import '../styles/scss/components/HeaderComponent.scss';
 import gbr from '../assets/images/Icon/gbr.png';
 import iconBag from '../assets/images/Icon/icons-bag.png';
@@ -16,20 +19,20 @@ class HeaderComponent extends React.Component{
       amount:ProductsTotal
     })
   }
-  openModalSignin = () => {
-    return this.setState({isModal:true})
-  }
-  openModalRegister = () => {
-    return this.setState({isModal:true})
+  openModal = (state , component) => {
+    const {stateModal,chooseModal} = this.props;
+    stateModal(state);
+    chooseModal(component);
   }
   render(){
+
     return(
       <div className="header">
         <div className="header__actionShop">
           <div className="header__actionShop--start">
               <div className="actionUser">
-                <span onClick={this.openModalSignin}><b>Hi!</b> Sign in</span>
-                <span onClick={this.openModalRegister}><b>or</b> Register</span>
+                <span onClick={this.openModal.bind(this,true,'signin')}><b>Hi!</b> Sign in</span>
+                <span onClick={this.openModal.bind(this,true,'signup')}><b>or</b> Register</span>
               </div>
           </div>
           <div className="header__actionShop--center">
@@ -50,6 +53,7 @@ class HeaderComponent extends React.Component{
     )
   }
 }
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ stateModal , chooseModal }, dispatch);
 
-
-export default HeaderComponent
+export default connect (null,mapDispatchToProps)(HeaderComponent)

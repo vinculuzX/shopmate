@@ -60,7 +60,6 @@ class ProductsListComponent extends React.Component{
     const { incrementCart } = this.props;
     const productsList  = this.state.product
     .map((product,index) => {
-      console.log(product);
       const productLink = `/product/${product.product_id}`;
       return(
 
